@@ -17,6 +17,12 @@ class App extends Component {
     });
   }
 
+  deleteCharHandler = (charIndex) => {
+    const charArray = [...this.state.inputValue];
+    charArray.splice(charIndex, 1);
+    this.setState({inputValue: charArray})
+  }
+
   
   render() {
     const style = {
@@ -30,7 +36,11 @@ class App extends Component {
     let characters = (
       <div>
         {this.state.inputValue.map((char, index) => {
-          return <CharComponent character={char} style={style} />
+          return <CharComponent 
+            key={index}
+            character={char} 
+            style={style} 
+            click={() => this.deleteCharHandler(index)} />
         })}
       </div>
     );

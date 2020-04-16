@@ -2,7 +2,7 @@ import React from 'react';
 
 const CharComponent = props => {
   return (
-    <p>{props.character}</p>
+    <div style={props.style} onClick={props.click}>{props.character}</div>
     )
 }
 
